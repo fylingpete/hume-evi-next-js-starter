@@ -21,7 +21,7 @@ export default function RootLayout({
         className={cn(
           GeistSans.variable,
           GeistMono.variable,
-          "flex flex-col min-h-screen"
+          "flex flex-col min-h-screen w-full bg-gradient-to-b from-orange-100 via-orange-200 to-orange-300"
         )}
       >
         <Nav />

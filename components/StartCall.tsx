@@ -1,7 +1,7 @@
 import { useVoice } from "@humeai/voice-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Phone } from "lucide-react";
+import { Speech } from "lucide-react"; 
 
 export default function StartCall() {
   const { status, connect } = useVoice();
@@ -29,7 +29,7 @@ export default function StartCall() {
               }}
             >
               <Button
-                className={"z-50 flex items-center gap-1.5"}
+                className={"z-50 flex items-center gap-1.5 bg-gray-300 text-gray-800"} // Updated background and text color
                 onClick={() => {
                   connect()
                     .then(() => {})
@@ -38,13 +38,13 @@ export default function StartCall() {
                 }}
               >
                 <span>
-                  <Phone
+                  <Speech
                     className={"size-4 opacity-50"}
                     strokeWidth={2}
                     stroke={"currentColor"}
                   />
                 </span>
-                <span>Start Call</span>
+                <span>Stop Conversation</span> // Updated text
               </Button>
             </motion.div>
           </AnimatePresence>
