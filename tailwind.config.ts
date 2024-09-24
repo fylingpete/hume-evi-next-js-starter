@@ -8,7 +8,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     fontFamily: {
@@ -80,6 +80,9 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  corePlugins: {
+    // applyComplexClasses: true, // Removed this line
+  },
 } satisfies Config
 
 export default config

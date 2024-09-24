@@ -1,7 +1,6 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-import HumeLogo from "./logos/Hume";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
 import Github from "./logos/GitHub";
@@ -27,13 +26,10 @@ export const Nav = () => {
   };
 
   return (
-    <div
-      className={"px-4 py-2 flex items-center h-14 z-50"} // Removed border classes
-    >
+    <div className={"px-4 py-2 flex items-center h-14 z-50"}>
       <div>
-        <HumeLogo className={"h-5 w-auto"} />
+        <span className={"h-5 w-auto text-xl"}>BEN THE FACILITATOR</span> {/* Increased text size */}
       </div>
-      {/* Removed the buttons */}
     </div>
   );
 };
