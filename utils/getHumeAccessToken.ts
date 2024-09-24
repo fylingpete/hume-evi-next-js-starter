@@ -2,14 +2,22 @@ import 'server-only';
 import { fetchAccessToken } from "@humeai/voice";
 
 export const getHumeAccessToken = async () => {
-    const accessToken = await fetchAccessToken({
-    apiKey: String(process.env.HUME_API_KEY),
-    clientSecret: String(process.env.HUME_CLIENT_SECRET),
-  });
+    const options: Record<string, string> = {
+        apiKey: String(process.env.HUME_API_KEY),
+    };
 
-  if (accessToken === 'undefined') {
-    return null;
-  }
+    // Add either clientSecret or secretKey based on what's available
+    if ('clientSecret' in fetchAccessToken) {
+        options.clientSecret = String(process.env.HUME_CLIENT_SECRET);
+    } else {
+        options.secretKey = String(process.env.HUME_CLIENT_SECRET);
+    }
 
-  return accessToken ?? null;
+    const accessToken = await fetchAccessToken(options as any);
+
+    if (accessToken === 'undefined') {
+        return null;
+    }
+
+    return accessToken ?? null;
 }
