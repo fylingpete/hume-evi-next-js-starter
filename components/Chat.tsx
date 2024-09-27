@@ -18,6 +18,7 @@ export default function ClientComponent({
     <div className={"relative grow flex flex-col mx-auto w-full overflow-hidden min-h-screen"}>
       <VoiceProvider
         auth={{ type: "accessToken", value: accessToken }}
+        configId={process.env.NEXT_PUBLIC_HUME_CONFIG_ID}
         onMessage={() => {
           if (timeout.current) {
             window.clearTimeout(timeout.current);
